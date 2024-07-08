@@ -9,5 +9,5 @@
   - 'gcr.io1/my-project2510/usecaserepo/frontend:$COMMIT_SHA'
 
   options:
-  logging: 'CLOUD_LOGGING_ONLY'
+  logging: 'use-case1252'
   
