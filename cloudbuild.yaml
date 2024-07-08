@@ -1,12 +1,8 @@
 steps:
-- name: 'gcr.io/cloud-builders/gcloud'
-  args: ['auth', 'activate-service-account', '--key-file=path/to/your/credentials.json']
-- name: 'hashicorp/terraform:light'
-  args: ['init']
-- name: 'hashicorp/terraform:light'
-  args: ['apply', '-auto-approve']
-  env:
-  - 'GOOGLE_CLOUD_PROJECT=my-project2510'
-  - 'TF_VAR_region=europe-north1'
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['build', '-t', 'gcr.io/my-project2510/jenkins', '.']
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/my-project2510/rohan']
+
   options:
     logsBucket: 'use-case1252'
