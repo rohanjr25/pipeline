@@ -1,0 +1,10 @@
+steps:
+- name: 'gcr.io/cloud-builders/gcloud'
+  args: ['auth', 'activate-service-account', '--key-file=path/to/your/credentials.json']
+- name: 'hashicorp/terraform:light'
+  args: ['init']
+- name: 'hashicorp/terraform:light'
+  args: ['apply', '-auto-approve']
+  env:
+  - 'GOOGLE_CLOUD_PROJECT=my-project2510'
+  - 'TF_VAR_region=europe-north1-a'
