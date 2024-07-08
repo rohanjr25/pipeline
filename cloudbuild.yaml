@@ -1,13 +1,10 @@
-    steps:
+steps:
   # Step 1: Build and push the Frontend Docker image
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'gcr.io1/my-project2510/usecaserepo/frontend:$COMMIT_SHA', '.']
+    args: ['build', '-t', 'gcr.io/my-project2510/usecaserepo/app:$COMMIT_SHA', '.']
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'gcr.io1/my-project2510/usecaserepo/frontend:$COMMIT_SHA']
-
-  images:
-  - 'gcr.io1/my-project2510/usecaserepo/frontend:$COMMIT_SHA'
-
-  options:
-  logging: 'use-case-cicd'
-  
+    args: ['push', 'gcr.io/my-project2510/usecaserepo/app:$COMMIT_SHA']
+images:
+  - 'gcr.io/my-project2510/usecaserepo/app:$COMMIT_SHA
+options:
+  logging: 'CLOUD_LOGGING_ONLY'
