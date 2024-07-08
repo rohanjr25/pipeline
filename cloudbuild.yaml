@@ -7,4 +7,4 @@ steps:
   args: ['apply', '-auto-approve']
   env:
   - 'GOOGLE_CLOUD_PROJECT=my-project2510'
-  - 'TF_VAR_region=europe-north1-a'
+  - 'TF_VAR_region=europe-north1'
