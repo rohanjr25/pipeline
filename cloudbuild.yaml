@@ -9,4 +9,4 @@ steps:
   - 'GOOGLE_CLOUD_PROJECT=my-project2510'
   - 'TF_VAR_region=europe-north1'
   options:
-  logging: 'CLOUD_LOGGING_ONLY'
+    logsBucket: 'use-case1252'
