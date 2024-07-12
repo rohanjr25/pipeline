@@ -1,12 +1,15 @@
 steps:
-  # Step 1: Build and push the Frontend Docker image
-  - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'gcr.io/my-project2510/usecaserepo/app:$COMMIT_SHA', '.']
-  - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'gcr.io/my-project2510/usecaserepo/app:$COMMIT_SHA']
+  - name: gcr.io/cloud-builders/kubectl
+    args:
+      - '-c'
+      - >
+        gcloud container clusters get-credentials gke-cluster --zone
+        europe-north1-a --project winter-runway-424719-a3
  
-images:
-  - 'gcr.io/my-project2510/usecaserepo/app:$COMMIT_SHA'
-  
+        kubectl create deployment dep3 --image yeasy/simple-web:latest
+ 
+        kubectl expose deployment dep3 --type LoadBalancer --port 80
+    id: Set up kubeconfig
+    entrypoint: sh
 options:
-  logging: 'CLOUD_LOGGING_ONLY'
+  logging: CLOUD_LOGGING_ONLY
